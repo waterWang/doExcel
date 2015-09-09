@@ -6,6 +6,11 @@ import javax.swing.filechooser.*;
 import java.io.File;
 public class L extends JFrame {
 /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1782442760743935143L;
+
+/**
 * @param args
 */
 public static void main(String[] args) throws Exception {
@@ -38,6 +43,7 @@ chooser.addChoosableFileFilter(txtFilter);
 chooser.addChoosableFileFilter(javaFilter);
 // 设置默认的文件管理器。如果不设置,则最后添加的文件过滤器为默认过滤器,本例中为javaFilter
 chooser.setFileFilter(txtFilter);
+@SuppressWarnings("unused")
 int rs = chooser.showSaveDialog(ConfigFrame.this);
 }
 });
