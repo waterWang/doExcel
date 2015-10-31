@@ -13,14 +13,14 @@ import jxl.write.WriteException;
 
 public class WriteToExcel {
 	/** 
-     * ¸ñÊ½»¯Êä³ö ¸¡µãÊı 
-     *  
+     * æ ¼å¼åŒ–è¾“å‡º æµ®ç‚¹æ•° 
+     *  test
      * @param d 
-     *            Ë«¾«¶È¸¡µãÊı 
+     *            åŒç²¾åº¦æµ®ç‚¹æ•° 
      * @param max  
-     *               Ğ¡Êıµãºó-×î´ó±£ÁôÎ»Êı 
+     *               å°æ•°ç‚¹å-æœ€å¤§ä¿ç•™ä½æ•° 
      * @param min 
-     *            Ğ¡Êıµãºó-×îĞ¡±£ÁôÎ»Êı(Ä¬ÈÏÎª 2 ,²»×ã²¹0) 
+     *            å°æ•°ç‚¹å-æœ€å°ä¿ç•™ä½æ•°(é»˜è®¤ä¸º 2 ,ä¸è¶³è¡¥0) 
      * @return 
      */  
 	public  static String format(Double d, Integer max ,Integer min) {  
@@ -38,20 +38,20 @@ public class WriteToExcel {
         }  
         return formatter.format(d);  
     }  
-	//Ğ´Èëexcel
+	//å†™å…¥excel
     public  void createExcel(OutputStream os ,double[] xArr ,double[] yArr ,Integer lenX,Integer lenY) throws WriteException,IOException {
 
-        //´´½¨¹¤×÷±¡
+        //åˆ›å»ºå·¥ä½œè–„
         WritableWorkbook workbook = Workbook.createWorkbook(os);
-        //´´½¨ĞÂµÄÒ»Ò³
+        //åˆ›å»ºæ–°çš„ä¸€é¡µ
         WritableSheet sheet = workbook.createSheet("1", 0);
-        //´´½¨ÒªÏÔÊ¾µÄ¾ßÌåÄÚÈİ
+        //åˆ›å»ºè¦æ˜¾ç¤ºçš„å…·ä½“å†…å®¹
   	   Label lab ,lx ,ly,la,x,y;
   	   int i= 0;
        Number  a;
        
         for(int hang =0 ;hang< xArr.length*2 ;hang++){
-        	if(hang%2==1){  //ÆæÊıĞĞ
+        	if(hang%2==1){  //å¥‡æ•°è¡Œ
         					lx = new Label(1,hang,"x");
         					//x = new Number(2,hang,xArr[i] ,wcfx);
         					x = new Label(2,hang,format(xArr[i] ,lenX,10));
@@ -73,7 +73,7 @@ public class WriteToExcel {
     		  	sheet.addCell(lab);
     		}
         }
-        //°Ñ´´½¨µÄÄÚÈİĞ´Èëµ½Êä³öÁ÷ÖĞ£¬²¢¹Ø±ÕÊä³öÁ÷
+        //æŠŠåˆ›å»ºçš„å†…å®¹å†™å…¥åˆ°è¾“å‡ºæµä¸­ï¼Œå¹¶å…³é—­è¾“å‡ºæµ
         workbook.write();
         workbook.close();
         os.close();
