@@ -5,67 +5,67 @@ import javax.swing.*;
 import javax.swing.filechooser.*;
 import java.io.File;
 public class L extends JFrame {
-/**
-	 * 
+	/**
+	 *
 	 */
 	private static final long serialVersionUID = 1782442760743935143L;
 
-/**
-* @param args
-*/
-public static void main(String[] args) throws Exception {
-new ConfigFrame("±£´æÎÄ¼ş");
-}
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) throws Exception {
+		new ConfigFrame("ä¿å­˜æ–‡ä»¶");
+	}
 }
 class ConfigFrame extends JFrame {
-private static final long serialVersionUID = 1L;
-public ConfigFrame(String title) {
-// ÉèÖÃ´°¿ÚÊôĞÔ
-final int width = 300;
-final int height = 200;
-final Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
-final int left = (screen.width - width) / 2;
-final int top = (screen.height - height) / 2;
-this.setLocation(left, top);
-this.setSize(width, height);
-this.setTitle(title);
-// Ìí¼Ó×é¼ş
-JPanel panel = new JPanel();
-this.add(panel);
-JButton b = new JButton("´ò¿ª");
-panel.add(b);
-b.addActionListener(new ActionListener() {
-public void actionPerformed(ActionEvent e) {
-JFileChooser chooser = new JFileChooser(".");
-TxtFileFilter txtFilter = new TxtFileFilter();
-JavaFileFilter javaFilter = new JavaFileFilter();
-chooser.addChoosableFileFilter(txtFilter);
-chooser.addChoosableFileFilter(javaFilter);
-// ÉèÖÃÄ¬ÈÏµÄÎÄ¼ş¹ÜÀíÆ÷¡£Èç¹û²»ÉèÖÃ,Ôò×îºóÌí¼ÓµÄÎÄ¼ş¹ıÂËÆ÷ÎªÄ¬ÈÏ¹ıÂËÆ÷,±¾ÀıÖĞÎªjavaFilter
-chooser.setFileFilter(txtFilter);
-@SuppressWarnings("unused")
-int rs = chooser.showSaveDialog(ConfigFrame.this);
-}
-});
-this.setVisible(true);
-this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-}
+	private static final long serialVersionUID = 1L;
+	public ConfigFrame(String title) {
+// è®¾ç½®çª—å£å±æ€§
+		final int width = 300;
+		final int height = 200;
+		final Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
+		final int left = (screen.width - width) / 2;
+		final int top = (screen.height - height) / 2;
+		this.setLocation(left, top);
+		this.setSize(width, height);
+		this.setTitle(title);
+// æ·»åŠ ç»„ä»¶
+		JPanel panel = new JPanel();
+		this.add(panel);
+		JButton b = new JButton("æ‰“å¼€");
+		panel.add(b);
+		b.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JFileChooser chooser = new JFileChooser(".");
+				TxtFileFilter txtFilter = new TxtFileFilter();
+				JavaFileFilter javaFilter = new JavaFileFilter();
+				chooser.addChoosableFileFilter(txtFilter);
+				chooser.addChoosableFileFilter(javaFilter);
+// è®¾ç½®é»˜è®¤çš„æ–‡ä»¶ç®¡ç†å™¨ã€‚å¦‚æœä¸è®¾ç½®,åˆ™æœ€åæ·»åŠ çš„æ–‡ä»¶è¿‡æ»¤å™¨ä¸ºé»˜è®¤è¿‡æ»¤å™¨,æœ¬ä¾‹ä¸­ä¸ºjavaFilter
+				chooser.setFileFilter(txtFilter);
+				@SuppressWarnings("unused")
+				int rs = chooser.showSaveDialog(ConfigFrame.this);
+			}
+		});
+		this.setVisible(true);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
 }
 class JavaFileFilter extends FileFilter {
-public String getDescription() {
-return "*.java(javaÔ´ÎÄ¼ş)";
-}
-public boolean accept(File file) {
-String name = file.getName();
-return name.toLowerCase().endsWith(".java");
-}
+	public String getDescription() {
+		return "*.java(javaæºæ–‡ä»¶)";
+	}
+	public boolean accept(File file) {
+		String name = file.getName();
+		return name.toLowerCase().endsWith(".java");
+	}
 }
 class TxtFileFilter extends FileFilter {
-public String getDescription() {
-return "*.txt(ÎÄ±¾ÎÄ¼ş)";
-}
-public boolean accept(File file) {
-String name = file.getName();
-return name.toLowerCase().endsWith(".txt");
-}
+	public String getDescription() {
+		return "*.txt(æ–‡æœ¬æ–‡ä»¶)";
+	}
+	public boolean accept(File file) {
+		String name = file.getName();
+		return name.toLowerCase().endsWith(".txt");
+	}
 }
